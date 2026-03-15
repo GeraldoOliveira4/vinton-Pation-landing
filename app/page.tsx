@@ -95,17 +95,29 @@ export default function Home() {
           transformar interesse em consultas agendadas.
         </p>
       </section>
-      <section className="py-20 flex justify-center">
+<section className="py-24 flex justify-center">
 
-  <video
-    width="800"
-    controls
-    className="rounded-xl shadow-lg"
-  >
+  <div className="relative max-w-4xl w-full">
 
-    <source src="/videoexplicativo.mp4" type="video/mp4" />
+    <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-3xl"></div>
 
-  </video>
+    <div className="relative bg-gray-900 border border-gray-800 rounded-3xl shadow-2xl p-4">
+
+      <video
+        className="rounded-2xl w-full"
+        controls
+        autoPlay
+        muted
+        loop
+      >
+
+        <source src="/videoexplicativo.mp4" type="video/mp4" />
+
+      </video>
+
+    </div>
+
+  </div>
 
 </section>
 
