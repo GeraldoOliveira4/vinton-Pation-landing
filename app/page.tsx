@@ -22,28 +22,43 @@ export default function Home() {
 
 
       {/* HERO */}
-      <section className="text-center py-24 px-6">
-        <h1 className="text-3xl md:text-5xl font-bold">
-  Vinton AI Patient Engine
-</h1>
-
-        <p className="text-xl max-w-2xl mx-auto mb-10">
-          Sistema inteligente que atrai, qualifica e agenda novos pacientes
-          automaticamente para clínicas de estética e odontologia.
-        </p>
-
-        <a
-  href="https://wa.me/5538984031551?text=Olá,%20tenho%20interesse%20no%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
-  target="_blank"
-  className="bg-blue-600 px-8 py-4 rounded-lg text-lg hover:bg-blue-500"
+      <section
+  className="relative text-center py-24 px-6 bg-cover bg-center"
+  style={{
+    backgroundImage: "url('/consultorio.png')"
+  }}
 >
-  Quero participar do projeto piloto
-</a>
 
-        <p className="mt-6 text-gray-400">
-          Apenas 3 clínicas
-        </p>
-      </section>
+  {/* overlay escuro */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* conteúdo */}
+  <div className="relative z-10">
+
+    <h1 className="text-3xl md:text-5xl font-bold text-white">
+      Vinton AI Patient Engine
+    </h1>
+
+    <p className="text-xl max-w-2xl mx-auto mb-10 text-gray-200">
+      Sistema inteligente que atrai, qualifica e agenda novos pacientes
+      automaticamente para clínicas de estética e odontologia.
+    </p>
+
+    <a
+      href="https://wa.me/5538984031551?text=Olá,%20tenho%20interesse%20no%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
+      target="_blank"
+      className="bg-blue-600 px-8 py-4 rounded-lg text-lg hover:bg-blue-500 text-white"
+    >
+      Quero participar do projeto piloto
+    </a>
+
+    <p className="mt-6 text-gray-300">
+      Apenas 3 clínicas
+    </p>
+
+  </div>
+
+</section>
 
       {/* PROBLEMA */}
       <section className="bg-gray-900 py-20 px-6 text-center">
