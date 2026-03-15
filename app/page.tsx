@@ -1,65 +1,224 @@
 import Image from "next/image";
-
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+  return ( 
+   
+    <main className="min-h-screen bg-black text-white">
+       <header>
+        <div className="mb-6 flex justify-center">
+  <div className="p-6 rounded-full bg-blue-500/10">
+      
+
+      
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="/logo-vinton-ai.png"
+          alt="Vinton AI Patient Engine"
+          width={220}
+  height={220}
+  className="drop-shadow-[0_0_25px_rgba(59,130,246,0.7)]"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
         </div>
-      </main>
+      </header>
+
+
+      {/* HERO */}
+      <section className="text-center py-24 px-6">
+        <h1 className="text-3xl md:text-5xl font-bold">
+  Vinton AI Patient Engine
+</h1>
+
+        <p className="text-xl max-w-2xl mx-auto mb-10">
+          Sistema inteligente que atrai, qualifica e agenda novos pacientes
+          automaticamente para clínicas de estética e odontologia.
+        </p>
+
+        <a
+  href="https://wa.me/5538984031551?text=Olá,%20tenho%20interesse%20no%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
+  target="_blank"
+  className="bg-blue-600 px-8 py-4 rounded-lg text-lg hover:bg-blue-500"
+>
+  Quero participar do projeto piloto
+</a>
+
+        <p className="mt-6 text-gray-400">
+          Apenas 3 clínicas
+        </p>
+      </section>
+
+      {/* PROBLEMA */}
+      <section className="bg-gray-900 py-20 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-10">
+          Por que muitas clínicas não crescem no digital?
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Redes sociais sem retorno
+            </h3>
+            <p className="text-gray-400">
+              Conteúdo sem estratégia não gera pacientes.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Leads que não respondem
+            </h3>
+            <p className="text-gray-400">
+              Muitas mensagens e poucos agendamentos.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Falta de automação
+            </h3>
+            <p className="text-gray-400">
+              Processos manuais que atrasam o atendimento.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SOLUÇÃO */}
+      <section className="py-24 text-center px-6">
+        <h2 className="text-3xl font-bold mb-10">
+          A solução: um motor de aquisição de pacientes com IA
+        </h2>
+
+        <p className="max-w-3xl mx-auto text-gray-400 text-lg">
+          O Vinton Patient Engine combina tráfego pago, landing pages
+          inteligentes e automação com inteligência artificial para
+          transformar interesse em consultas agendadas.
+        </p>
+      </section>
+      <section className="py-20 flex justify-center">
+
+  <video
+    width="800"
+    controls
+    className="rounded-xl shadow-lg"
+  >
+
+    <source src="/videoexplicativo.mp4" type="video/mp4" />
+
+  </video>
+
+</section>
+
+      {/* COMO FUNCIONA */}
+      <section className="bg-gray-900 py-20 px-6 text-center">
+
+        <h2 className="text-3xl font-bold mb-12">
+          Como funciona
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              1. Atrair
+            </h3>
+            <p className="text-gray-400">
+              Campanhas inteligentes geram novos leads diariamente.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              2. Qualificar
+            </h3>
+            <p className="text-gray-400">
+              Um assistente com IA responde dúvidas automaticamente.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              3. Agendar
+            </h3>
+            <p className="text-gray-400">
+              Pacientes são direcionados diretamente para consulta.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+      <section className="py-20 px-6">
+  <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+    Como o Vinton AI Patient Engine ajuda sua clínica
+  </h2>
+
+  <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <div className="bg-zinc-900 p-8 rounded-xl border border-zinc-800">
+      <h3 className="text-xl font-semibold mb-4">
+        Atrai novos pacientes
+      </h3>
+      <p className="text-gray-400">
+        Estratégias de tráfego e conteúdo inteligente para gerar
+        demanda constante para sua clínica.
+      </p>
     </div>
-  );
+
+    <div className="bg-zinc-900 p-8 rounded-xl border border-zinc-800">
+      <h3 className="text-xl font-semibold mb-4">
+        Qualifica automaticamente
+      </h3>
+      <p className="text-gray-400">
+        IA identifica pacientes com maior intenção e organiza
+        os contatos automaticamente.
+      </p>
+    </div>
+
+    <div className="bg-zinc-900 p-8 rounded-xl border border-zinc-800">
+      <h3 className="text-xl font-semibold mb-4">
+        Agenda consultas
+      </h3>
+      <p className="text-gray-400">
+        Automação conecta o interesse do paciente diretamente
+        com sua agenda.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+      {/* CTA FINAL */}
+      <section className="text-center py-24 px-6">
+
+        <h2 className="text-4xl font-bold mb-6">
+          Projeto Piloto
+        </h2>
+
+        <p className="text-xl mb-8">
+          Apenas 3 clínicas
+        </p>
+
+        <a
+  href="https://wa.me/5538984031551?text=Olá,%20gostaria%20de%20solicitar%20uma%20apresentação%20do%20Vinton%20AI%20Patient%20Engine"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 px-10 py-5 text-lg rounded-lg hover:bg-blue-500 inline-block"
+>
+  Solicitar apresentação
+</a>
+
+      </section>
+      <a
+  href="https://wa.me/5538984031551?text=Olá,%20tenho%20interesse%20no%20Vinton%20AI%20Patient%20Engine"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-lg hover:bg-green-400 z-50"
+>
+  WhatsApp
+</a>
+
+    </main>
+  )
 }
