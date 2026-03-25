@@ -36,14 +36,13 @@ export default function Home() {
   <div className="relative z-10">
 
     <h1 className="text-3xl md:text-5xl font-bold text-white">
-      Vinton AI Patient Engine
-    </h1>
+  Transforme seu WhatsApp em um sistema que agenda pacientes todos os dias
+</h1>
 
     <p className="text-xl max-w-2xl mx-auto mb-10 text-gray-200">
-      Sistema inteligente que atrai, qualifica e agenda novos pacientes
-      automaticamente para clínicas de estética e odontologia.
-    </p>
-
+  Automatize atendimento, follow-up e agendamentos, enquanto recupera pacientes
+  que sua clínica está perdendo todos os dias.
+</p>
     <a
       href="https://wa.me/5538984031551?text=Olá,%20tenho%20interesse%20no%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
       target="_blank"
@@ -61,55 +60,99 @@ export default function Home() {
 </section>
 
       {/* PROBLEMA */}
-      <section className="bg-gray-900 py-20 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-10">
-          Por que muitas clínicas não crescem no digital?
-        </h2>
+      <section className="py-24 px-6 bg-black text-center">
+  <h2 className="text-3xl md:text-4xl font-bold mb-12">
+    O problema não é falta de pacientes.
+  </h2>
 
-        <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+  <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+    A maioria das clínicas já recebe contatos todos os dias…
+    mas perde oportunidades por falhas no atendimento e falta de acompanhamento.
+  </p>
 
-          <div>
-            <h3 className="text-xl font-semibold mb-2">
-              Redes sociais sem retorno
-            </h3>
-            <p className="text-gray-400">
-              Conteúdo sem estratégia não gera pacientes.
-            </p>
-          </div>
+  <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
 
-          <div>
-            <h3 className="text-xl font-semibold mb-2">
-              Leads que não respondem
-            </h3>
-            <p className="text-gray-400">
-              Muitas mensagens e poucos agendamentos.
-            </p>
-          </div>
+    <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+      <p className="text-red-400 font-semibold mb-2">
+        ❌ Leads ignorados
+      </p>
+      <p className="text-gray-400">
+        Mensagens que não recebem resposta rápida simplesmente esfriam.
+      </p>
+    </div>
 
-          <div>
-            <h3 className="text-xl font-semibold mb-2">
-              Falta de automação
-            </h3>
-            <p className="text-gray-400">
-              Processos manuais que atrasam o atendimento.
-            </p>
-          </div>
+    <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+      <p className="text-red-400 font-semibold mb-2">
+        ❌ Falta de follow-up
+      </p>
+      <p className="text-gray-400">
+        Pacientes interessados somem e nunca mais são contatados.
+      </p>
+    </div>
 
-        </div>
-      </section>
+    <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+      <p className="text-red-400 font-semibold mb-2">
+        ❌ Agenda ociosa
+      </p>
+      <p className="text-gray-400">
+        Horários vagos mesmo com demanda existente.
+      </p>
+    </div>
+
+    <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+      <p className="text-red-400 font-semibold mb-2">
+        ❌ Falta de padrão no atendimento
+      </p>
+      <p className="text-gray-400">
+        Cada conversa é diferente e sem estratégia de conversão.
+      </p>
+    </div>
+
+  </div>
+</section>
 
       {/* SOLUÇÃO */}
-      <section className="py-24 text-center px-6">
-        <h2 className="text-3xl font-bold mb-10">
-          A solução: um motor de aquisição de pacientes com IA
-        </h2>
+      <section className="py-24 px-6 text-center bg-gray-900">
+  <h2 className="text-3xl md:text-4xl font-bold mb-10">
+    Mais que automação. Um sistema que executa o crescimento da sua clínica.
+  </h2>
 
-        <p className="max-w-3xl mx-auto text-gray-400 text-lg">
-          O Vinton Patient Engine combina tráfego pago, landing pages
-          inteligentes e automação com inteligência artificial para
-          transformar interesse em consultas agendadas.
-        </p>
-      </section>
+  <p className="text-gray-400 max-w-3xl mx-auto text-lg mb-12">
+    O Vinton AI Patient Engine funciona como um time digital que atende,
+    acompanha, agenda e recupera pacientes automaticamente — todos os dias.
+  </p>
+
+  <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+      <h3 className="font-semibold text-lg mb-2">
+        Atendimento imediato
+      </h3>
+      <p className="text-gray-400">
+        Respostas automáticas em segundos no WhatsApp.
+      </p>
+    </div>
+
+    <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+      <h3 className="font-semibold text-lg mb-2">
+        Agendamento inteligente
+      </h3>
+      <p className="text-gray-400">
+        Pacientes são conduzidos diretamente para a agenda.
+      </p>
+    </div>
+
+    <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+      <h3 className="font-semibold text-lg mb-2">
+        Follow-up automático
+      </h3>
+      <p className="text-gray-400">
+        O sistema retoma conversas e recupera pacientes.
+      </p>
+    </div>
+
+  </div>
+</section>
 <section className="py-24 flex justify-center">
 
   <div className="relative max-w-4xl w-full">
@@ -135,7 +178,63 @@ export default function Home() {
   </div>
 
 </section>
+<section className="py-24 px-6 bg-black text-center">
+  <h2 className="text-3xl md:text-4xl font-bold mb-10">
+    O dinheiro está no follow-up
+  </h2>
 
+  <p className="text-gray-300 max-w-3xl mx-auto mb-12 text-lg">
+    A maioria das clínicas perde pacientes não por falta de interesse,
+    mas por falta de acompanhamento.
+  </p>
+
+  <div className="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+    
+    <p className="text-xl text-white mb-6">
+      Enquanto você responde novos contatos, dezenas de oportunidades são perdidas:
+    </p>
+
+    <ul className="text-gray-400 space-y-3 text-left max-w-md mx-auto">
+      <li>✔ Pacientes que não responderam mais</li>
+      <li>✔ Pessoas que pediram preço e sumiram</li>
+      <li>✔ Pacientes que faltaram e não reagendaram</li>
+      <li>✔ Orçamentos que nunca foram fechados</li>
+    </ul>
+
+    <p className="text-white mt-8 font-semibold">
+      Nosso sistema atua exatamente nesse ponto: recuperar essas oportunidades automaticamente.
+    </p>
+
+  </div>
+</section>
+<section className="py-24 px-6 bg-gray-900 text-center">
+  <h2 className="text-3xl md:text-4xl font-bold mb-10">
+    Quantos pacientes você está perdendo hoje?
+  </h2>
+
+  <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-8">
+    Pequenas falhas no atendimento podem representar milhares de reais
+    perdidos todos os meses — sem que você perceba.
+  </p>
+
+  <div className="max-w-3xl mx-auto bg-black border border-zinc-800 rounded-2xl p-8">
+    
+    <p className="text-xl text-white mb-4">
+      Imagine perder apenas:
+    </p>
+
+    <ul className="text-gray-400 space-y-2 mb-6">
+      <li>• 2 pacientes por dia</li>
+      <li>• Ticket médio de R$ 300</li>
+    </ul>
+
+    <p className="text-white font-semibold text-lg">
+      Isso representa mais de R$ 18.000 por mês em oportunidades perdidas.
+    </p>
+
+  </div>
+
+</section>
       {/* COMO FUNCIONA */}
       <section className="bg-gray-900 py-20 px-6 text-center">
 
@@ -217,26 +316,86 @@ export default function Home() {
 
 
       {/* CTA FINAL */}
-      <section className="text-center py-24 px-6">
+      <section className="text-center py-24 px-6 bg-black">
 
-        <h2 className="text-4xl font-bold mb-6">
-          Projeto Piloto
-        </h2>
+  <h2 className="text-4xl font-bold mb-6">
+    Transforme seu atendimento em um sistema que gera pacientes todos os dias
+  </h2>
 
-        <p className="text-xl mb-8">
-          Apenas 3 clínicas
-        </p>
+  <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+    Vamos implementar o Vinton AI Patient Engine na sua clínica e mostrar, na prática,
+    como recuperar pacientes, aumentar agendamentos e eliminar falhas no atendimento.
+  </p>
 
-        <a
-  href="https://wa.me/5538984031551?text=Olá,%20gostaria%20de%20solicitar%20uma%20apresentação%20do%20Vinton%20AI%20Patient%20Engine"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-blue-600 px-10 py-5 text-lg rounded-lg hover:bg-blue-500 inline-block"
->
-  Solicitar apresentação
-</a>
+  <div className="mb-8 text-gray-400">
+    ✔ Atendimento automático no WhatsApp <br />
+    ✔ Agendamentos diretos na agenda <br />
+    ✔ Follow-up inteligente <br />
+    ✔ Recuperação de pacientes perdidos
+  </div>
 
-      </section>
+  <a
+    href="https://wa.me/5538984031551?text=Olá,%20quero%20participar%20do%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-blue-600 px-10 py-5 text-lg rounded-lg hover:bg-blue-500 inline-block"
+  >
+    Quero participar do projeto piloto
+  </a>
+
+  <p className="mt-6 text-sm text-gray-500">
+    Vagas limitadas para implementação inicial
+  </p>
+
+</section>
+<section className="py-24 px-6 bg-black">
+  <h2 className="text-3xl font-bold text-center mb-12">
+    Dúvidas comuns
+  </h2>
+
+  <div className="max-w-3xl mx-auto space-y-6 text-gray-400">
+
+    <div>
+      <h3 className="text-white font-semibold">
+        Isso substitui minha recepcionista?
+      </h3>
+      <p>
+        Não. O sistema trabalha junto com sua equipe, automatizando tarefas repetitivas
+        e garantindo que nenhum paciente fique sem resposta.
+      </p>
+    </div>
+
+    <div>
+      <h3 className="text-white font-semibold">
+        Funciona para qualquer clínica?
+      </h3>
+      <p>
+        Funciona melhor para clínicas que já recebem contatos e querem aumentar
+        a conversão e reduzir perdas.
+      </p>
+    </div>
+
+    <div>
+      <h3 className="text-white font-semibold">
+        Preciso entender de tecnologia?
+      </h3>
+      <p>
+        Não. Nós configuramos todo o sistema para você e acompanhamos a implementação.
+      </p>
+    </div>
+
+    <div>
+      <h3 className="text-white font-semibold">
+        Em quanto tempo vejo resultado?
+      </h3>
+      <p>
+        Já nos primeiros dias é possível perceber melhora no atendimento e aumento
+        nas respostas e agendamentos.
+      </p>
+    </div>
+
+  </div>
+</section>
       <a
   href="https://wa.me/5538984031551?text=Olá,%20tenho%20interesse%20no%20Vinton%20AI%20Patient%20Engine"
   target="_blank"
