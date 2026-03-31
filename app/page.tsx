@@ -44,7 +44,7 @@ export default function Home() {
   que sua clínica está perdendo todos os dias.
 </p>
     <a
-      href="https://wa.me/5538984031551?text=Olá,%20tenho%20interesse%20no%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
+      href="https://wa.me/5538984277071?text=Olá,%20tenho%20interesse%20no%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
       target="_blank"
       className="bg-blue-600 px-8 py-4 rounded-lg text-lg hover:bg-blue-500 text-white"
     >
@@ -335,7 +335,7 @@ export default function Home() {
   </div>
 
   <a
-    href="https://wa.me/5538984031551?text=Olá,%20quero%20participar%20do%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
+    href="https://wa.me/5538984277071?text=Olá,%20quero%20participar%20do%20projeto%20piloto%20do%20Vinton%20AI%20Patient%20Engine"
     target="_blank"
     rel="noopener noreferrer"
     className="bg-blue-600 px-10 py-5 text-lg rounded-lg hover:bg-blue-500 inline-block"
@@ -397,7 +397,7 @@ export default function Home() {
   </div>
 </section>
       <a
-  href="https://wa.me/5538984031551?text=Olá,%20tenho%20interesse%20no%20Vinton%20AI%20Patient%20Engine"
+  href="https://wa.me/5538984277071?text=Olá,%20tenho%20interesse%20no%20Vinton%20AI%20Patient%20Engine"
   target="_blank"
   rel="noopener noreferrer"
   className="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-lg hover:bg-green-400 z-50"
