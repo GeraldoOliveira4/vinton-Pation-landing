@@ -313,6 +313,34 @@ export default function Home() {
 
   </div>
 </section>
+<section className="py-20 px-6 flex justify-center">
+
+  <div className="max-w-4xl w-full text-center">
+
+    <h2 className="text-3xl font-bold mb-10">
+      O que estão dizendo
+    </h2>
+
+    <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 shadow-xl">
+
+      <p className="text-yellow-400 text-xl mb-4">
+        ★★★★★
+      </p>
+
+      <p className="text-lg text-gray-300 mb-6">
+        "Adorei todo o trabalho e tempo dedicados! Recomendo muitíssimo! Excelentes resultados!"
+      </p>
+
+      <div className="text-sm text-gray-400">
+        <strong className="text-white">Dr. Fabiel Lima</strong> <br />
+        7 avaliações • Dentista
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
       {/* CTA FINAL */}
