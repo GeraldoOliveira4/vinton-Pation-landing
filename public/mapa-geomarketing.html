@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #18181b; font-family: system-ui, sans-serif; color: #fff; }
+
+  .tabs { display: flex; gap: 6px; padding: 12px 16px; background: #18181b; border-bottom: 1px solid #27272a; }
+  .tab { font-size: 11px; padding: 4px 12px; border-radius: 20px; border: 1px solid #3f3f46; background: transparent; cursor: pointer; color: #a1a1aa; }
+  .tab.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+
+  .map-area { position: relative; width: 100%; height: 360px; overflow: hidden; }
+
+  svg { width: 100%; height: 100%; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; padding: 10px 16px; background: #18181b; border-top: 1px solid #27272a; }
+  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #a1a1aa; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .leg-rect { width: 12px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+  .tooltip {
+    position: absolute; background: #27272a; border: 1px solid #3f3f46;
+    border-radius: 8px; padding: 10px 12px; font-size: 11px; color: #fff;
+    pointer-events: none; opacity: 0; transition: opacity 0.15s;
+    min-width: 180px; z-index: 10;
+  }
+  .tip-title { font-weight: 600; font-size: 12px; margin-bottom: 5px; color: #60a5fa; }
+  .tip-row { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 2px; }
+  .tip-key { color: #71717a; }
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab active" onclick="setTab(this,'oportunidade')">Oportunidade</button>
+  <button class="tab" onclick="setTab(this,'ameaca')">Ameaça</button>
+  <button class="tab" onclick="setTab(this,'digital')">Presença digital</button>
+  <button class="tab" onclick="setTab(this,'renda')">Renda</button>
+</div>
+
+<div class="map-area">
+  <svg id="mapsvg" viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="h1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#E24B4A" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#E24B4A" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="h2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#E24B4A" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#E24B4A" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="h3" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#EF9F27" stop-opacity="0.75"/>
+        <stop offset="100%" stop-color="#EF9F27" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="h4" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1D9E75" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#1D9E75" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="h5" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#639922" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#639922" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Base -->
+    <rect width="680" height="360" fill="#27272a"/>
+
+    <!-- Vias -->
+    <line x1="0" y1="180" x2="680" y2="180" stroke="#3f3f46" stroke-width="8"/>
+    <line x1="340" y1="0" x2="340" y2="360" stroke="#3f3f46" stroke-width="8"/>
+    <line x1="0" y1="108" x2="680" y2="125" stroke="#3f3f46" stroke-width="5"/>
+    <line x1="0" y1="270" x2="680" y2="260" stroke="#3f3f46" stroke-width="5"/>
+    <line x1="160" y1="0" x2="175" y2="360" stroke="#3f3f46" stroke-width="4"/>
+    <line x1="505" y1="0" x2="490" y2="360" stroke="#3f3f46" stroke-width="4"/>
+
+    <!-- Blocos de bairro -->
+    <rect x="1" y="1" width="154" height="105" fill="#2a2a2e" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="180" y="1" width="155" height="105" fill="#2c2c30" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="345" y="1" width="140" height="105" fill="#2a2a2e" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="495" y="1" width="184" height="105" fill="#2c2c30" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="1" y="130" width="154" height="125" fill="#2c2c30" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="180" y="130" width="155" height="125" fill="#2a2a2e" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="345" y="130" width="140" height="125" fill="#2c2c30" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="495" y="130" width="184" height="125" fill="#2a2a2e" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="1" y="265" width="154" height="94" fill="#2a2a2e" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="180" y="265" width="155" height="94" fill="#2c2c30" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="345" y="265" width="140" height="94" fill="#2a2a2e" stroke="#3f3f46" stroke-width="0.5"/>
+    <rect x="495" y="265" width="184" height="94" fill="#2c2c30" stroke="#3f3f46" stroke-width="0.5"/>
+
+    <!-- Labels bairros -->
+    <text x="77" y="52" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Ibituruna</text>
+    <text x="257" y="52" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Melo</text>
+    <text x="415" y="52" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Centro</text>
+    <text x="587" y="52" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Edgar Pereira</text>
+    <text x="77" y="195" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Morada do Sol</text>
+    <text x="257" y="195" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Santos Dumont</text>
+    <text x="415" y="195" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Canelas</text>
+    <text x="587" y="195" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Major Prates</text>
+    <text x="77" y="315" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Cintra</text>
+    <text x="257" y="315" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Augusta Mota</text>
+    <text x="415" y="315" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Delfino Magalhães</text>
+    <text x="587" y="315" text-anchor="middle" font-size="8" fill="#52525b" font-family="system-ui">Cândida Câmara</text>
+
+    <!-- Camada de calor -->
+    <g id="heatLayer">
+      <ellipse cx="257" cy="192" rx="130" ry="95" fill="url(#h1)"/>
+      <ellipse cx="415" cy="180" rx="110" ry="85" fill="url(#h2)"/>
+      <ellipse cx="77" cy="192" rx="90" ry="75" fill="url(#h3)"/>
+      <ellipse cx="415" cy="52" rx="90" ry="65" fill="url(#h4)"/>
+      <ellipse cx="587" cy="192" rx="85" ry="65" fill="url(#h3)"/>
+      <ellipse cx="257" cy="52" rx="75" ry="60" fill="url(#h5)"/>
+    </g>
+
+    <!-- Sua clínica -->
+    <g id="pinClient" transform="translate(257,192)" style="cursor:pointer"
+       onmouseenter="tip(event,'client')" onmouseleave="hideTip()">
+      <circle cx="0" cy="0" r="20" fill="#2563eb" opacity="0.2"/>
+      <circle cx="0" cy="0" r="10" fill="#2563eb"/>
+      <text x="0" y="4" text-anchor="middle" font-size="10" fill="white" font-weight="700" font-family="system-ui">C</text>
+    </g>
+
+    <!-- Concorrentes -->
+    <g transform="translate(415,155)" style="cursor:pointer" onmouseenter="tip(event,'c1')" onmouseleave="hideTip()">
+      <circle cx="0" cy="0" r="14" fill="#dc2626" opacity="0.2"/>
+      <circle cx="0" cy="0" r="7" fill="#dc2626"/>
+      <text x="0" y="3" text-anchor="middle" font-size="8" fill="white" font-weight="700" font-family="system-ui">C1</text>
+    </g>
+    <g transform="translate(325,268)" style="cursor:pointer" onmouseenter="tip(event,'c2')" onmouseleave="hideTip()">
+      <circle cx="0" cy="0" r="14" fill="#dc2626" opacity="0.2"/>
+      <circle cx="0" cy="0" r="7" fill="#dc2626"/>
+      <text x="0" y="3" text-anchor="middle" font-size="8" fill="white" font-weight="700" font-family="system-ui">C2</text>
+    </g>
+    <g transform="translate(530,130)" style="cursor:pointer" onmouseenter="tip(event,'c3')" onmouseleave="hideTip()">
+      <circle cx="0" cy="0" r="14" fill="#dc2626" opacity="0.2"/>
+      <circle cx="0" cy="0" r="7" fill="#dc2626"/>
+      <text x="0" y="3" text-anchor="middle" font-size="8" fill="white" font-weight="700" font-family="system-ui">C3</text>
+    </g>
+    <g transform="translate(115,118)" style="cursor:pointer" onmouseenter="tip(event,'c4')" onmouseleave="hideTip()">
+      <circle cx="0" cy="0" r="14" fill="#d97706" opacity="0.2"/>
+      <circle cx="0" cy="0" r="7" fill="#d97706"/>
+      <text x="0" y="3" text-anchor="middle" font-size="8" fill="white" font-weight="700" font-family="system-ui">C4</text>
+    </g>
+
+    <!-- Polos de demanda -->
+    <circle cx="200" cy="88" r="5" fill="#059669" opacity="0.85" style="cursor:pointer"/>
+    <circle cx="450" cy="290" r="5" fill="#059669" opacity="0.7"/>
+    <circle cx="75" cy="290" r="5" fill="#059669" opacity="0.65"/>
+    <circle cx="578" cy="295" r="4" fill="#059669" opacity="0.6"/>
+
+    <!-- Escala -->
+    <line x1="30" y1="345" x2="90" y2="345" stroke="#52525b" stroke-width="1.5"/>
+    <line x1="30" y1="340" x2="30" y2="350" stroke="#52525b" stroke-width="1"/>
+    <line x1="90" y1="340" x2="90" y2="350" stroke="#52525b" stroke-width="1"/>
+    <text x="60" y="338" text-anchor="middle" font-size="7" fill="#52525b" font-family="system-ui">1 km</text>
+
+    <!-- Norte -->
+    <polygon points="648,342 645,352 651,352" fill="#52525b"/>
+    <line x1="648" y1="352" x2="648" y2="358" stroke="#52525b" stroke-width="1.5"/>
+    <text x="648" y="340" text-anchor="middle" font-size="9" fill="#71717a" font-weight="700" font-family="system-ui">N</text>
+  </svg>
+
+  <div class="tooltip" id="tooltip">
+    <div class="tip-title" id="tip-title"></div>
+    <div id="tip-body"></div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="leg-item"><div class="leg-dot" style="background:#2563eb"></div>Sua clínica</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#dc2626"></div>Concorrente direto</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#d97706"></div>Concorrente indireto</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#059669"></div>Polo de demanda</div>
+  <div class="leg-item"><div class="leg-rect" style="background:#E24B4A;opacity:0.5"></div>Alta oportunidade</div>
+  <div class="leg-item"><div class="leg-rect" style="background:#EF9F27;opacity:0.5"></div>Oportunidade média</div>
+  <div class="leg-item"><div class="leg-rect" style="background:#1D9E75;opacity:0.5"></div>Baixa concorrência</div>
+</div>
+
+<script>
+const pins = {
+  client: {
+    title: "Sorrir Nobre — sua clínica",
+    rows: [["Bairro","Santos Dumont"],["Ticket médio","R$ 480"],["Serviços","Facetas, implante, clareamento"],["Nota Google","4.9 ★ (127 aval.)"],["Score oportunidade","8.4 / 10"]]
+  },
+  c1: {
+    title: "C1 — Clínica Oral Max",
+    rows: [["Bairro","Canelas"],["Ticket médio","R$ 550"],["Serviços","Ortodontia, facetas"],["Nota Google","4.2 ★ (48 aval.)"],["Google Ads","Não"],["Score ameaça","6.1 / 10"]]
+  },
+  c2: {
+    title: "C2 — SmileCare",
+    rows: [["Bairro","Delfino Magalhães"],["Ticket médio","R$ 390"],["Serviços","Clareamento, ortodontia"],["Nota Google","3.9 ★ (22 aval.)"],["Google Ads","Sim"],["Score ameaça","4.5 / 10"]]
+  },
+  c3: {
+    title: "C3 — Dental Prime",
+    rows: [["Bairro","Major Prates"],["Ticket médio","R$ 620"],["Serviços","Implante, facetas, alinhador"],["Nota Google","4.6 ★ (210 aval.)"],["Google Ads","Sim"],["Score ameaça","7.8 / 10"]]
+  },
+  c4: {
+    title: "C4 — Sorriso Fácil",
+    rows: [["Bairro","Ibituruna"],["Ticket médio","R$ 280"],["Serviços","Clareamento, restauração"],["Nota Google","4.0 ★ (15 aval.)"],["Google Ads","Não"],["Score ameaça","3.2 / 10"]]
+  }
+};
+
+function tip(e, key) {
+  const d = pins[key]; if (!d) return;
+  const t = document.getElementById('tooltip');
+  document.getElementById('tip-title').textContent = d.title;
+  document.getElementById('tip-body').innerHTML = d.rows
+    .map(r => `<div class="tip-row"><span class="tip-key">${r[0]}</span><span>${r[1]}</span></div>`)
+    .join('');
+  const rect = e.currentTarget.closest('.map-area').getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  t.style.left = Math.min(x + 14, rect.width - 200) + 'px';
+  t.style.top = Math.max(y - 60, 8) + 'px';
+  t.style.opacity = '1';
+}
+
+function hideTip() {
+  document.getElementById('tooltip').style.opacity = '0';
+}
+
+function setTab(el, layer) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>

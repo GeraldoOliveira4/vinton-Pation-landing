@@ -274,6 +274,126 @@ export default function Home() {
         </div>
 
       </section>
+      {/* INTELIGÊNCIA GEOESPACIAL */}
+<section className="py-24 px-6 bg-black text-center">
+
+  <div className="max-w-6xl mx-auto">
+
+    {/* Badge */}
+    <span className="inline-block bg-blue-500/10 text-blue-400 text-sm font-semibold px-4 py-1 rounded-full border border-blue-500/20 mb-6">
+      Exclusivo Vinton AI · Geomarketing com IA
+    </span>
+
+    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      Saiba exatamente onde estão seus pacientes — e seus concorrentes
+    </h2>
+
+    <p className="text-gray-400 max-w-3xl mx-auto text-lg mb-16">
+      Além da automação no WhatsApp, entregamos inteligência de mercado local:
+      mapeamos concorrentes, analisamos renda por bairro, presença digital dos rivais
+      e geramos mapas de calor com as maiores oportunidades de captação da sua região.
+    </p>
+
+    {/* Cards de diferenciais */}
+    <div className="grid md:grid-cols-3 gap-6 mb-16 text-left">
+
+      <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+        <div className="text-blue-400 text-2xl mb-3">📍</div>
+        <h3 className="font-semibold text-lg mb-2">Mapeamento de concorrentes</h3>
+        <p className="text-gray-400 text-sm">
+          Identificamos todos os concorrentes diretos e indiretos no seu raio de atuação —
+          com ticket médio, serviços ofertados, nota no Google e presença em anúncios.
+        </p>
+      </div>
+
+      <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+        <div className="text-blue-400 text-2xl mb-3">🔥</div>
+        <h3 className="font-semibold text-lg mb-2">Mapa de calor de oportunidades</h3>
+        <p className="text-gray-400 text-sm">
+          Visualize onde está a maior concentração de pacientes em potencial,
+          cruzando dados de renda, densidade e comportamento digital por bairro.
+        </p>
+      </div>
+
+      <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+        <div className="text-blue-400 text-2xl mb-3">🎯</div>
+        <h3 className="font-semibold text-lg mb-2">Campanhas direcionadas por zona</h3>
+        <p className="text-gray-400 text-sm">
+          Usamos a análise geoespacial para direcionar seus anúncios no Google Ads
+          exatamente nos bairros com maior potencial de conversão.
+        </p>
+      </div>
+
+    </div>
+
+    {/* Mapa interativo */}
+    <div className="relative">
+
+      {/* Glow de fundo */}
+      <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-10 rounded-3xl pointer-events-none"></div>
+
+      <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
+
+        {/* Header do mapa */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+            <span className="text-sm text-gray-400 font-medium">
+              Análise geoespacial · Dados demonstrativos
+            </span>
+          </div>
+          <span className="text-xs text-blue-400 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">
+            Gerado via QGIS + Vinton AI
+          </span>
+        </div>
+
+        {/* Iframe do mapa */}
+        <div className="w-full" style={{ height: "520px" }}>
+          <iframe
+            src="/mapa-geomarketing.html"
+            className="w-full h-full border-0"
+            title="Mapa de Geomarketing Vinton AI"
+          />
+        </div>
+
+        {/* Métricas abaixo do mapa */}
+        <div className="grid grid-cols-2 md:grid-cols-4 border-t border-zinc-800">
+          {[
+            { label: "Concorrentes mapeados", value: "4", sub: "raio de 3 km" },
+            { label: "Score de oportunidade", value: "8.4", sub: "zona prioritária" },
+            { label: "Ticket médio local", value: "R$ 520", sub: "média concorrentes" },
+            { label: "Renda média do bairro", value: "R$ 4.2k", sub: "Santos Dumont" },
+          ].map((m, i) => (
+            <div
+              key={i}
+              className="p-5 text-left border-r border-zinc-800 last:border-r-0"
+            >
+              <p className="text-xs text-gray-500 mb-1">{m.label}</p>
+              <p className="text-2xl font-bold text-white">{m.value}</p>
+              <p className="text-xs text-gray-500 mt-1">{m.sub}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+
+    {/* Nota e CTA */}
+    <p className="text-gray-600 text-xs mt-4 mb-10">
+      * Dados fictícios para demonstração. A análise real é gerada com dados da sua cidade e região.
+</p>
+
+    
+      <a href="https://wa.me/5538984277071"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-blue-600 px-8 py-4 rounded-lg text-lg hover:bg-blue-500 text-white inline-block"
+    >
+      Quero ver o mapa da minha clínica
+    </a>
+
+  </div>
+</section>
       <section className="py-20 px-6">
   <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
     Como o Vinton AI Patient Engine ajuda sua clínica
